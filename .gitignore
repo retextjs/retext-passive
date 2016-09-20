@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+node_modules/
+.nyc_output/
+coverage/
+retext-passive.js
+retext-passive.min.js
