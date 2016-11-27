@@ -1,19 +1,9 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module retext:passive
- * @fileoverview Test suite for `retext-passive`.
- */
-
 'use strict';
 
-/* Dependencies. */
 var test = require('tape');
 var retext = require('retext');
 var passive = require('./');
 
-/* Tests. */
 test('passive', function (t) {
   t.plan(2);
 
