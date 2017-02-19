@@ -37,6 +37,8 @@ function passive() {
       }, phrase.replace(/\s+/g, '-').toLowerCase());
 
       message.source = 'retext-passive';
+      message.actual = match[0].children[0].value;
+      message.expected = ['Passive voice'];
     }
   }
 }
