@@ -37,6 +37,8 @@ function passive() {
       }, phrase.replace(/\s+/g, '-').toLowerCase());
 
       message.source = 'retext-passive';
+      message.actual = toString(match);
+      message.expected = null;
     }
   }
 }

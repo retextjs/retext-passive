@@ -17,7 +17,8 @@
   "bugs": "https://github.com/wooorm/retext-passive/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+    "Sylvan Swierkosz <sswierkosz@gmail.com>"
   ],
   "dependencies": {
     "nlcst-search": "^1.0.0",
