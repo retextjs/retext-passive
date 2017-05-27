@@ -49,9 +49,13 @@ example.txt
 
 ## API
 
-### `retext().use(passive)`
+### `retext().use(passive[, options])`
 
 Check for passive voice.  No options.
+
+###### `options.ignore`
+
+`Array.<string>` — phrases _not_ to warn about.
 
 ## Related
 
