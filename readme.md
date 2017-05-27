@@ -53,6 +53,15 @@ example.txt
 
 Check for passive voice.  No options.
 
+## Related
+
+*   [`retext-equality`](https://github.com/wooorm/retext-equality)
+    — Check possible insensitive, inconsiderate language
+*   [`retext-profanities`](https://github.com/wooorm/retext-profanities)
+    — Check for profane and vulgar wording
+*   [`retext-simplify`](https://github.com/wooorm/retext-simplify)
+    — Check phrases for simpler alternatives
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
