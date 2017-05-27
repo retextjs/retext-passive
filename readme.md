@@ -12,21 +12,35 @@ npm install retext-passive
 
 ## Usage
 
-```js
-var retext = require('retext');
-var passive = require('retext-passive');
-var report = require('vfile-reporter');
+Say we have the following file, `example.txt`:
 
-retext()
+```text
+He was withheld while we were being fed.
+```
+
+And our script, `example.js`, looks like this:
+
+```javascript
+var vfile = require('to-vfile');
+var report = require('vfile-reporter');
+var unified = require('unified');
+var english = require('retext-english');
+var stringify = require('retext-stringify');
+var passive = require('retext-passive');
+
+unified()
+  .use(english)
   .use(passive)
-  .process('He was withheld while we were being fed.', function (err, file) {
+  .use(stringify)
+  .process(vfile.readSync('example.txt'), function (err, file) {
     console.error(report(err || file));
   });
 ```
 
-Yields:
+Now, running `node example` yields:
 
-```txt
+```text
+example.txt
    1:8-1:16  warning  Don’t use the passive voice  withheld  retext-passive
   1:37-1:40  warning  Don’t use the passive voice  fed       retext-passive
 
