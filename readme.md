@@ -66,6 +66,13 @@ Check for passive voice.  No options.
 *   [`retext-simplify`](https://github.com/retextjs/retext-simplify)
     — Check phrases for simpler alternatives
 
+## Contribute
+
+See [`contribute.md` in `retextjs/retext`][contribute] for ways to get started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -87,3 +94,7 @@ Check for passive voice.  No options.
 [author]: http://wooorm.com
 
 [retext]: https://github.com/retextjs/retext
+
+[contribute]: https://github.com/retextjs/retext/blob/master/contributing.md
+
+[coc]: https://github.com/retextjs/retext/blob/master/code-of-conduct.md
