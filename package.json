@@ -9,8 +9,8 @@
     "retext",
     "plugin"
   ],
-  "repository": "wooorm/retext-passive",
-  "bugs": "https://github.com/wooorm/retext-passive/issues",
+  "repository": "retextjs/retext-passive",
+  "bugs": "https://github.com/retextjs/retext-passive/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",

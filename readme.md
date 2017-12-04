@@ -59,11 +59,11 @@ Check for passive voice.  No options.
 
 ## Related
 
-*   [`retext-equality`](https://github.com/wooorm/retext-equality)
+*   [`retext-equality`](https://github.com/retextjs/retext-equality)
     — Check possible insensitive, inconsiderate language
-*   [`retext-profanities`](https://github.com/wooorm/retext-profanities)
+*   [`retext-profanities`](https://github.com/retextjs/retext-profanities)
     — Check for profane and vulgar wording
-*   [`retext-simplify`](https://github.com/wooorm/retext-simplify)
+*   [`retext-simplify`](https://github.com/retextjs/retext-simplify)
     — Check phrases for simpler alternatives
 
 ## License
@@ -72,13 +72,13 @@ Check for passive voice.  No options.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/retext-passive.svg
+[travis-badge]: https://img.shields.io/travis/retextjs/retext-passive.svg
 
-[travis]: https://travis-ci.org/wooorm/retext-passive
+[travis]: https://travis-ci.org/retextjs/retext-passive
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/retext-passive.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-passive.svg
 
-[codecov]: https://codecov.io/github/wooorm/retext-passive
+[codecov]: https://codecov.io/github/retextjs/retext-passive
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -86,4 +86,4 @@ Check for passive voice.  No options.
 
 [author]: http://wooorm.com
 
-[retext]: https://github.com/wooorm/retext
+[retext]: https://github.com/retextjs/retext
