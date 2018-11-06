@@ -1,4 +1,4 @@
-# retext-passive [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# retext-passive [![Build][build-badge]][build] [![Coverage][coverage-badge]][coverage] [![Downloads][downloads-badge]][downloads] [![Chat][chat-badge]][chat]
 
 Check for passive voice with [**retext**][retext].
 
@@ -80,13 +80,21 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/retextjs/retext-passive.svg
+[build-badge]: https://img.shields.io/travis/retextjs/retext-passive.svg
 
-[travis]: https://travis-ci.org/retextjs/retext-passive
+[build]: https://travis-ci.org/retextjs/retext-passive
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-passive.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-passive.svg
 
-[codecov]: https://codecov.io/github/retextjs/retext-passive
+[coverage]: https://codecov.io/github/retextjs/retext-passive
+
+[downloads-badge]: https://img.shields.io/npm/dm/retext-passive.svg
+
+[downloads]: https://www.npmjs.com/package/retext-passive
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/retext
 
 [npm]: https://docs.npmjs.com/cli/install
 
