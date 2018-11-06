@@ -1,21 +1,21 @@
-'use strict';
+'use strict'
 
-var test = require('tape');
-var retext = require('retext');
-var passive = require('.');
+var test = require('tape')
+var retext = require('retext')
+var passive = require('.')
 
-test('passive', function (t) {
-  t.plan(2);
+test('passive', function(t) {
+  t.plan(2)
 
   var doc = [
     'He was withheld while we were being fed.',
     'Fed.',
     'The fed.'
-  ].join('\n');
+  ].join('\n')
 
   retext()
     .use(passive)
-    .process(doc, function (err, file) {
+    .process(doc, function(err, file) {
       t.deepEqual(
         [err, file.messages.map(String)],
         [
@@ -26,16 +26,16 @@ test('passive', function (t) {
           ]
         ],
         'should work'
-      );
-    });
+      )
+    })
 
   retext()
     .use(passive, {ignore: ['fed']})
-    .process(doc, function (err, file) {
+    .process(doc, function(err, file) {
       t.deepEqual(
         [err, file.messages.map(String)],
         [null, ['1:8-1:16: Don’t use the passive voice']],
         'should `ignore`'
-      );
-    });
-});
+      )
+    })
+})
