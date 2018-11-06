@@ -4,21 +4,13 @@ node_js:
 - '8.0'
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
-  - provider: npm
-    skip_cleanup: true
-    email: tituswormer@gmail.com
-    api_key:
-      secure: X50H6uf7lUPJDylJggn4ChWe+axWWDMdPu7RjKizKNMxHLlsKjIpqdoUz98GYjai6cV65jaYpwoViFoO4CC3ueHl8/iDrTVLFVShpFZ7gIb+ZUMMv/u/cFuSyhjTOlXa5KNZ8IOTMjPCxfuaEpk0hhzxmgo7FLcNDSVa4FsjA9NldbzOOVk4dm1+Vk5zDNDAIC7yQa6hwhKx6MF1dmuP3jQt+c1S+JZNSQkNa0ttA5yvl5pX3JKxiCazjD54mNB6/VoVZ9YBM5zgjthiiNI5Yll1nOI+8257YYcHtooofRmaVwHOQ41t6BfRMXBgs70FHoknTnnfnBhqTihosbWhxmZMtPQbdMwM6tUXvNHvsv1pc0kBfleq5Rk3oTIjc7MJPwusZ8r9+C4QmmJKRr0pLOuFAYA4vADK83g2NuJf7811BvpZdP+FD3N3jVdK1F/xZ7FmKLPpKx2/Vp+lB+JychAOWTGvQdF5CzwrWAyRuLqyUd7c+IicUmKH2H80bk49uF8PShn67RPR4r3PrpwxPHNPaPwitUeNR26wJzJUWUUkUK4rk69eLfnWf3Vn0cQY2f5c5KDOnm2crkb7C4zh/jGYErJgbAiFqEfMGkFXaTYGeGul5VciA0RCr6vxjVj67d5BvB5auHfFQEMJEPc3+18eEiJiUugJsBFWxhSaJcE=
-    on:
-      tags: true
-      node: '9.0'
-  - provider: releases
-    skip_cleanup: true
-    api_key:
-      secure: Dg1g8WfsY5ZGeE57woY1DcZ6DX/1Hs+Ae7RUQCX1Aurn+wQ2KovbliCA1Vux44THubAkCp6IRzWY9Gf+WG7ETcZlNX6evjmRuiY6bIb1l1A3xwoOsh0HBFM/xd7zZLNO9uzwfHllRvxO/1iS6lcrTCMaBgnXfO6M7+y93fhYDY/t2L5tY7dcvZkVib82KeBE04CW6KGw7qWCRpzUmeIivG/J9UUZwQotxZyn0c9qsSmfHFtCl0SD8lwbPyK7jVxKx8hRMtNZ/s2EHA/kx+/exhwu+X+3gXyw9wHk+lj3v77rNmUa7ISzdgHoY+aGaz9OnpA+xU/lazFVVa6iXcMg8ScM/T5Hb4lXydajlOTZWndxBJatTlPX980l17IIu9C8JmXfs0u3lK+xLMzS5P2g0W5wTjQaZkVAGr4hBeXjn1muZAuNyhdhbOFZ0zX402RN3FHelABtGlrROfC5IngB9nAAyr7/LEyMKbdLt/gZvHv2oamfsf0coFpOd9GJFEaNeeH1V8RBg27YhLDbXPpjVNqCKpxaTsonSbq3VIUM5A18ZwM0bS6aARoswSMuM2GoggM5dsLHh3AEdhG9wxFubDh92N3E8lhjAgPerN+CpTBsgCcn7PNEF0jf5sFsZnI6EzPFLYk/g8kmEXPcYzOCAjEgZkEJJkL47rBgjRaJH2w=
-    file:
-      - "retext-passive.js"
-      - "retext-passive.min.js"
-    on:
-      tags: true
-      node: '9.0'
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: Dg1g8WfsY5ZGeE57woY1DcZ6DX/1Hs+Ae7RUQCX1Aurn+wQ2KovbliCA1Vux44THubAkCp6IRzWY9Gf+WG7ETcZlNX6evjmRuiY6bIb1l1A3xwoOsh0HBFM/xd7zZLNO9uzwfHllRvxO/1iS6lcrTCMaBgnXfO6M7+y93fhYDY/t2L5tY7dcvZkVib82KeBE04CW6KGw7qWCRpzUmeIivG/J9UUZwQotxZyn0c9qsSmfHFtCl0SD8lwbPyK7jVxKx8hRMtNZ/s2EHA/kx+/exhwu+X+3gXyw9wHk+lj3v77rNmUa7ISzdgHoY+aGaz9OnpA+xU/lazFVVa6iXcMg8ScM/T5Hb4lXydajlOTZWndxBJatTlPX980l17IIu9C8JmXfs0u3lK+xLMzS5P2g0W5wTjQaZkVAGr4hBeXjn1muZAuNyhdhbOFZ0zX402RN3FHelABtGlrROfC5IngB9nAAyr7/LEyMKbdLt/gZvHv2oamfsf0coFpOd9GJFEaNeeH1V8RBg27YhLDbXPpjVNqCKpxaTsonSbq3VIUM5A18ZwM0bS6aARoswSMuM2GoggM5dsLHh3AEdhG9wxFubDh92N3E8lhjAgPerN+CpTBsgCcn7PNEF0jf5sFsZnI6EzPFLYk/g8kmEXPcYzOCAjEgZkEJJkL47rBgjRaJH2w=
+  file:
+    - "retext-passive.js"
+    - "retext-passive.min.js"
+  on:
+    tags: true
+    node: '9.0'
