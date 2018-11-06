@@ -2,7 +2,7 @@
 
 var test = require('tape');
 var retext = require('retext');
-var passive = require('./');
+var passive = require('.');
 
 test('passive', function (t) {
   t.plan(2);
