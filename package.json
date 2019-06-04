@@ -1,13 +1,14 @@
 {
   "name": "retext-passive",
   "version": "1.3.2",
-  "description": "Check for passive voice",
+  "description": "retext plugin to check for passive voice",
   "license": "MIT",
   "keywords": [
-    "passive",
-    "voice",
+    "unified",
     "retext",
-    "plugin"
+    "plugin",
+    "passive",
+    "voice"
   ],
   "repository": "retextjs/retext-passive",
   "bugs": "https://github.com/retextjs/retext-passive/issues",
