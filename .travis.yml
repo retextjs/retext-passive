@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
@@ -9,7 +9,7 @@ deploy:
   api_key:
     secure: ppRUFTAHhmDNuhXUNithmPVAlszusugCSSnJkMQWWfEGX3fgyWGsI7t96mP6MKovwya8Njalmw4uL5o3GMksoeoekbRCEq8OMzbKX2juvjc8Oaadj2HAxQAIXw8+bcXL1y8sonDvPfyo5tz5efmtZu13QwA5sVZWS2GXJKT62tYjYlH1NLdhpXUSkyqqH51Pvf+0h5vNcWdm0dCck8gRp4EcdMHOWqK/LJllt+lf7jXs6Eve3KxwEkRvzQfYQ+wqTpAZZNNqvW1daT4iE6N1SrBivks7qye7UEhJKge0wtmtP4jX8uUaaNlh2UNInFBuGaB/AnvKNaaMZOqWSqveBjpETVOyoapxXicC0ycFTOZvW3qjzKQs97fGifS36eClps0dDMFu0/iej3xQUk1UhplRWEOEBY7ZiUr0oQkmN+j+SmIIVt1x/ojzuh5BweiPtZ95XIV9SfL1MOH+WptGlg/dyZ+CoVEy47SN8I9xp8TBBWywA7DvLm40UcxR1s4ckIOhDVMwAh04Bzd6aDrwpEcgHX/IBm2ABozdIMLeyyzu1R7E2rU4/W/7TqsbmA3y8mozcdTDvIQNHjkUT7HwA7sqmiXdcFWUL3doN5saVdPOkBeptwG9JGWB1IGAldLYwxh0u9Esy39lQEet6d9H3ocxUTywGWRCFdNjPh4vOpg=
   file:
-    - "retext-passive.js"
-    - "retext-passive.min.js"
+    - 'retext-passive.js'
+    - 'retext-passive.min.js'
   on:
     tags: true
