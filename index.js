@@ -17,7 +17,7 @@ function passive(options) {
 
   return transformer
 
-  /* Search `tree` for violations. */
+  // Search `tree` for violations.
   function transformer(tree, file) {
     search(tree, list, searcher)
 
