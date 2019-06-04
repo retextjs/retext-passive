@@ -1,26 +1,34 @@
-# retext-passive [![Build][build-badge]][build] [![Coverage][coverage-badge]][coverage] [![Downloads][downloads-badge]][downloads] [![Chat][chat-badge]][chat]
+# retext-passive
 
-Check for passive voice with [**retext**][retext].
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
-## Installation
+[**retext**][retext] plugin to check for passive voice.
+
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install retext-passive
 ```
 
-## Usage
+## Use
 
 Say we have the following file, `example.txt`:
 
-```text
+```txt
 He was withheld while we were being fed.
 ```
 
-And our script, `example.js`, looks like this:
+…and our script, `example.js`, looks like this:
 
-```javascript
+```js
 var vfile = require('to-vfile')
 var report = require('vfile-reporter')
 var unified = require('unified')
@@ -39,7 +47,7 @@ unified()
 
 Now, running `node example` yields:
 
-```text
+```txt
 example.txt
    1:8-1:16  warning  Don’t use the passive voice  withheld  retext-passive
   1:37-1:40  warning  Don’t use the passive voice  fed       retext-passive
@@ -51,11 +59,11 @@ example.txt
 
 ### `retext().use(passive[, options])`
 
-Check for passive voice.  No options.
+Check for passive voice.
 
 ###### `options.ignore`
 
-`Array.<string>` — phrases *not* to warn about.
+Phrases *not* to warn about (`Array.<string>`).
 
 ## Related
 
@@ -68,11 +76,13 @@ Check for passive voice.  No options.
 
 ## Contribute
 
-See [`contributing.md` in `retextjs/retext`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`retextjs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -92,18 +102,32 @@ repository, organisation, or community you agree to abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/retext-passive
 
+[size-badge]: https://img.shields.io/bundlephobia/minzip/retext-passive.svg
+
+[size]: https://bundlephobia.com/result?p=retext-passive
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/retext
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[health]: https://github.com/retextjs/.github
+
+[contributing]: https://github.com/retextjs/.github/blob/master/contributing.md
+
+[support]: https://github.com/retextjs/.github/blob/master/support.md
+
+[coc]: https://github.com/retextjs/.github/blob/master/code-of-conduct.md
+
 [license]: license
 
 [author]: https://wooorm.com
 
 [retext]: https://github.com/retextjs/retext
-
-[contributing]: https://github.com/retextjs/retext/blob/master/contributing.md
-
-[coc]: https://github.com/retextjs/retext/blob/master/code-of-conduct.md
