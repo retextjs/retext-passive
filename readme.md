@@ -55,7 +55,7 @@ Check for passive voice.  No options.
 
 ###### `options.ignore`
 
-`Array.<string>` — phrases _not_ to warn about.
+`Array.<string>` — phrases *not* to warn about.
 
 ## Related
 
