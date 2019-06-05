@@ -35,7 +35,7 @@ function passive(options) {
         return
       }
 
-      message = file.warn(
+      message = file.message(
         'Don’t use the passive voice',
         {
           start: position.start(match[0]),
