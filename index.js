@@ -9,6 +9,8 @@ var patterns = require('./list')
 
 module.exports = passive
 
+var source = 'retext-passive'
+
 var verbs = ['am', 'are', 'were', 'being', 'is', 'been', 'was', 'be']
 
 function passive(options) {
@@ -41,12 +43,11 @@ function passive(options) {
           start: position.start(match[0]),
           end: position.end(match[match.length - 1])
         },
-        phrase.replace(/\s+/g, '-').toLowerCase()
+        [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
       )
 
-      message.source = 'retext-passive'
       message.actual = toString(match)
-      message.expected = null
+      message.expected = []
     }
   }
 }
