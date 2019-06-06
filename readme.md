@@ -65,6 +65,27 @@ Check for passive voice.
 
 Phrases *not* to warn about (`Array.<string>`).
 
+### Messages
+
+Each message is emitted as a [`VFileMessage`][message] on `file`, with the
+following fields:
+
+###### `message.source`
+
+Name of this plugin (`'retext-passive'`).
+
+###### `message.ruleId`
+
+Any word in [`list.json`][list].
+
+###### `message.actual`
+
+Current not ok phrase (`string`).
+
+###### `message.expected`
+
+Empty array to signal that `actual` should be removed (`[]`).
+
 ## Related
 
 *   [`retext-equality`](https://github.com/retextjs/retext-equality)
@@ -131,3 +152,7 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [retext]: https://github.com/retextjs/retext
+
+[message]: https://github.com/vfile/vfile-message
+
+[list]: list.json
