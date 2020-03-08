@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "lodash.difference": "^4.5.0",
-    "nlcst-search": "^1.0.0",
+    "nlcst-search": "^2.0.0",
     "nlcst-to-string": "^2.0.0",
     "unist-util-find-before": "^2.0.0",
     "unist-util-position": "^3.0.0"
