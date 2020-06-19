@@ -4,7 +4,7 @@ var test = require('tape')
 var retext = require('retext')
 var passive = require('.')
 
-test('passive', function(t) {
+test('passive', function (t) {
   t.plan(3)
 
   var doc = [
@@ -15,21 +15,19 @@ test('passive', function(t) {
 
   retext()
     .use(passive)
-    .process(doc, function(err, file) {
+    .process(doc, function (err, file) {
       t.deepEqual(
-        [err, file.messages.map(String)],
+        [err].concat(file.messages.map(String)),
         [
           null,
-          [
-            '1:8-1:16: Don’t use the passive voice',
-            '1:37-1:40: Don’t use the passive voice'
-          ]
+          '1:8-1:16: Don’t use the passive voice',
+          '1:37-1:40: Don’t use the passive voice'
         ],
         'should work'
       )
 
       t.deepEqual(
-        file.messages[0],
+        JSON.parse(JSON.stringify(file.messages[0])),
         {
           message: 'Don’t use the passive voice',
           name: '1:8-1:16',
@@ -52,7 +50,7 @@ test('passive', function(t) {
 
   retext()
     .use(passive, {ignore: ['fed']})
-    .process(doc, function(err, file) {
+    .process(doc, function (err, file) {
       t.deepEqual(
         [err, file.messages.map(String)],
         [null, ['1:8-1:16: Don’t use the passive voice']],

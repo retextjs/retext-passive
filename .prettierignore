@@ -1,3 +1,5 @@
 coverage/
 retext-passive.js
 retext-passive.min.js
+*.json
+*.md
