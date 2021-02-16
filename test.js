@@ -15,9 +15,9 @@ test('passive', function (t) {
 
   retext()
     .use(passive)
-    .process(doc, function (err, file) {
+    .process(doc, function (error, file) {
       t.deepEqual(
-        [err].concat(file.messages.map(String)),
+        [error].concat(file.messages.map(String)),
         [
           null,
           '1:8-1:16: Don’t use the passive voice',
@@ -50,9 +50,9 @@ test('passive', function (t) {
 
   retext()
     .use(passive, {ignore: ['fed']})
-    .process(doc, function (err, file) {
+    .process(doc, function (error, file) {
       t.deepEqual(
-        [err, file.messages.map(String)],
+        [error, file.messages.map(String)],
         [null, ['1:8-1:16: Don’t use the passive voice']],
         'should `ignore`'
       )
