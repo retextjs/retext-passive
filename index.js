@@ -1,3 +1,10 @@
+/**
+ * @typedef Options
+ *   Configuration.
+ * @property {string[]} [ignore]
+ *   Phrases *not* to warn about.
+ */
+
 import {search} from 'nlcst-search'
 import {toString} from 'nlcst-to-string'
 import {findBefore} from 'unist-util-find-before'
@@ -8,6 +15,11 @@ const source = 'retext-passive'
 
 const verbs = new Set(['am', 'are', 'were', 'being', 'is', 'been', 'was', 'be'])
 
+/**
+ * Plugin to check for passive voice.
+ *
+ * @type {import('unified').Plugin<[Options?]>}
+ */
 export default function retextPassive(options = {}) {
   const ignore = options.ignore || []
   const phrases =

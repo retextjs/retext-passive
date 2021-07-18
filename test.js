@@ -13,11 +13,11 @@ test('retext-passive', (t) => {
 
   retext()
     .use(retextPassive)
-    .process(doc, (error, file) => {
+    .process(doc)
+    .then((file) => {
       t.deepEqual(
-        [error].concat(file.messages.map((d) => String(d))),
+        file.messages.map((d) => String(d)),
         [
-          null,
           '1:8-1:16: Don’t use the passive voice',
           '1:37-1:40: Don’t use the passive voice'
         ],
@@ -44,15 +44,16 @@ test('retext-passive', (t) => {
         },
         'should emit messages'
       )
-    })
+    }, t.ifErr)
 
   retext()
     .use(retextPassive, {ignore: ['fed']})
-    .process(doc, (error, file) => {
+    .process(doc)
+    .then((file) => {
       t.deepEqual(
-        [error, file.messages.map((d) => String(d))],
-        [null, ['1:8-1:16: Don’t use the passive voice']],
+        file.messages.map((d) => String(d)),
+        ['1:8-1:16: Don’t use the passive voice'],
         'should `ignore`'
       )
-    })
+    }, t.ifErr)
 })
