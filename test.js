@@ -2,10 +2,10 @@ import test from 'tape'
 import {retext} from 'retext'
 import retextPassive from './index.js'
 
-test('retext-passive', function (t) {
+test('retext-passive', (t) => {
   t.plan(3)
 
-  var doc = [
+  const doc = [
     'He was withheld while we were being fed.',
     'Fed.',
     'The fed.'
@@ -13,9 +13,9 @@ test('retext-passive', function (t) {
 
   retext()
     .use(retextPassive)
-    .process(doc, function (error, file) {
+    .process(doc, (error, file) => {
       t.deepEqual(
-        [error].concat(file.messages.map(String)),
+        [error].concat(file.messages.map((d) => String(d))),
         [
           null,
           '1:8-1:16: Don’t use the passive voice',
@@ -48,9 +48,9 @@ test('retext-passive', function (t) {
 
   retext()
     .use(retextPassive, {ignore: ['fed']})
-    .process(doc, function (error, file) {
+    .process(doc, (error, file) => {
       t.deepEqual(
-        [error, file.messages.map(String)],
+        [error, file.messages.map((d) => String(d))],
         [null, ['1:8-1:16: Don’t use the passive voice']],
         'should `ignore`'
       )
