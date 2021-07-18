@@ -76,7 +76,7 @@ Name of this plugin (`'retext-passive'`).
 
 ###### `message.ruleId`
 
-Any word in [`list.json`][list].
+Any word in [`list.js`][list].
 
 ###### `message.actual`
 
@@ -155,4 +155,4 @@ abide by its terms.
 
 [message]: https://github.com/vfile/vfile-message
 
-[list]: list.json
+[list]: list.js

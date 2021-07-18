@@ -1,10 +1,8 @@
-'use strict'
+import test from 'tape'
+import retext from 'retext'
+import retextPassive from './index.js'
 
-var test = require('tape')
-var retext = require('retext')
-var passive = require('.')
-
-test('passive', function (t) {
+test('retext-passive', function (t) {
   t.plan(3)
 
   var doc = [
@@ -14,7 +12,7 @@ test('passive', function (t) {
   ].join('\n')
 
   retext()
-    .use(passive)
+    .use(retextPassive)
     .process(doc, function (error, file) {
       t.deepEqual(
         [error].concat(file.messages.map(String)),
@@ -49,7 +47,7 @@ test('passive', function (t) {
     })
 
   retext()
-    .use(passive, {ignore: ['fed']})
+    .use(retextPassive, {ignore: ['fed']})
     .process(doc, function (error, file) {
       t.deepEqual(
         [error, file.messages.map(String)],

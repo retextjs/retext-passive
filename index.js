@@ -1,27 +1,23 @@
-'use strict'
-
-var difference = require('lodash.difference')
-var search = require('nlcst-search')
-var toString = require('nlcst-to-string')
-var position = require('unist-util-position')
-var findBefore = require('unist-util-find-before')
-var patterns = require('./list')
-
-module.exports = passive
+import difference from 'lodash.difference'
+import search from 'nlcst-search'
+import toString from 'nlcst-to-string'
+import position from 'unist-util-position'
+import findBefore from 'unist-util-find-before'
+import {list} from './list.js'
 
 var source = 'retext-passive'
 
 var verbs = ['am', 'are', 'were', 'being', 'is', 'been', 'was', 'be']
 
-function passive(options) {
+export default function retextPassive(options) {
   var ignore = (options || {}).ignore || []
-  var list = difference(patterns, ignore)
+  var phrases = difference(list, ignore)
 
   return transformer
 
   // Search `tree` for violations.
   function transformer(tree, file) {
-    search(tree, list, searcher)
+    search(tree, phrases, searcher)
 
     function searcher(match, index, parent, phrase) {
       var before = findBefore(parent, index, 'WordNode')
