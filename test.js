@@ -1,5 +1,5 @@
 import test from 'tape'
-import retext from 'retext'
+import {retext} from 'retext'
 import retextPassive from './index.js'
 
 test('retext-passive', function (t) {
@@ -27,17 +27,17 @@ test('retext-passive', function (t) {
       t.deepEqual(
         JSON.parse(JSON.stringify(file.messages[0])),
         {
-          message: 'Don’t use the passive voice',
           name: '1:8-1:16',
+          message: 'Don’t use the passive voice',
           reason: 'Don’t use the passive voice',
           line: 1,
           column: 8,
-          location: {
+          source: 'retext-passive',
+          ruleId: 'withheld',
+          position: {
             start: {line: 1, column: 8, offset: 7},
             end: {line: 1, column: 16, offset: 15}
           },
-          source: 'retext-passive',
-          ruleId: 'withheld',
           fatal: false,
           actual: 'withheld',
           expected: []
