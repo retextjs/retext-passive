@@ -1,8 +1,8 @@
 import difference from 'lodash.difference'
-import search from 'nlcst-search'
-import toString from 'nlcst-to-string'
-import position from 'unist-util-position'
-import findBefore from 'unist-util-find-before'
+import {search} from 'nlcst-search'
+import {toString} from 'nlcst-to-string'
+import {findBefore} from 'unist-util-find-before'
+import {pointStart, pointEnd} from 'unist-util-position'
 import {list} from './list.js'
 
 var source = 'retext-passive'
@@ -35,10 +35,7 @@ export default function retextPassive(options) {
 
       message = file.message(
         'Don’t use the passive voice',
-        {
-          start: position.start(match[0]),
-          end: position.end(match[match.length - 1])
-        },
+        {start: pointStart(match[0]), end: pointEnd(match[match.length - 1])},
         [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
       )
 
