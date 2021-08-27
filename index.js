@@ -1,4 +1,7 @@
 /**
+ * @typedef {import('nlcst').Root} Root
+ * @typedef {import('nlcst').Word} Word
+ *
  * @typedef Options
  *   Configuration.
  * @property {string[]} [ignore]
@@ -18,7 +21,7 @@ const verbs = new Set(['am', 'are', 'were', 'being', 'is', 'been', 'was', 'be'])
 /**
  * Plugin to check for passive voice.
  *
- * @type {import('unified').Plugin<[Options?]>}
+ * @type {import('unified').Plugin<[Options?], Root>}
  */
 export default function retextPassive(options = {}) {
   const ignore = options.ignore || []
@@ -27,7 +30,7 @@ export default function retextPassive(options = {}) {
 
   return (tree, file) => {
     search(tree, phrases, (match, index, parent, phrase) => {
-      const before = findBefore(parent, index, 'WordNode')
+      const before = /** @type {Word} */ (findBefore(parent, index, 'WordNode'))
 
       if (!before || !verbs.has(toString(before).toLowerCase())) {
         return
