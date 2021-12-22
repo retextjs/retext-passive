@@ -15,6 +15,7 @@ import {pointStart, pointEnd} from 'unist-util-position'
 import {list} from './list.js'
 
 const source = 'retext-passive'
+const url = 'https://github.com/retextjs/retext-passive#readme'
 
 const verbs = new Set(['am', 'are', 'were', 'being', 'is', 'been', 'was', 'be'])
 
@@ -42,7 +43,7 @@ export default function retextPassive(options = {}) {
           {start: pointStart(match[0]), end: pointEnd(match[match.length - 1])},
           [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
         ),
-        {actual: toString(match), expected: []}
+        {actual: toString(match), expected: [], url}
       )
     })
   }

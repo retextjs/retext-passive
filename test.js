@@ -40,7 +40,8 @@ test('retext-passive', (t) => {
           },
           fatal: false,
           actual: 'withheld',
-          expected: []
+          expected: [],
+          url: 'https://github.com/retextjs/retext-passive#readme'
         },
         'should emit messages'
       )
