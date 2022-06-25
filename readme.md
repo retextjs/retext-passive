@@ -8,50 +8,86 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**retext**][retext] plugin to check for passive voice.
+**[retext][]** plugin to check for passive voice.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`unified().use(retextPassive[, options])`](#unifieduseretextpassive-options)
+*   [Messages](#messages)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package is a [unified][] ([retext][]) plugin to check for the passive
+voice.
+It checks for certain verbs (`'am'`, `'are'`, `'were'`, `'being'`, `'is'`,
+`'been'`, `'was'`, or `'be'`), followed by a word in [`list.js`][list].
+
+## When should I use this?
+
+You can opt-into this plugin when you’re dealing with content that might contain
+weak language, and have authors that can fix that content.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
 
 ```sh
 npm install retext-passive
 ```
 
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import retextPassive from 'https://esm.sh/retext-passive@4'
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import retextPassive from 'https://esm.sh/retext-passive@4?bundle'
+</script>
+```
+
 ## Use
 
-Say we have the following file, `example.txt`:
+Say our document `example.txt` contains:
 
 ```txt
 He was withheld while we were being fed.
 ```
 
-…and our script, `example.js`, looks like this:
+…and our module `example.js` looks as follows:
 
 ```js
-import {readSync} from 'to-vfile'
+import {read} from 'to-vfile'
 import {reporter} from 'vfile-reporter'
 import {unified} from 'unified'
 import retextEnglish from 'retext-english'
 import retextPassive from 'retext-passive'
 import retextStringify from 'retext-stringify'
 
-const file = readSync('example.txt')
-
-unified()
+const file = await unified()
   .use(retextEnglish)
   .use(retextPassive)
   .use(retextStringify)
-  .process(file)
-  .then((file) => {
-    console.error(reporter(file))
-  })
+  .process(await read('example.txt'))
+
+console.error(reporter(file))
 ```
 
-Now, running `node example` yields:
+…now running `node example.js` yields:
 
 ```txt
 example.txt
@@ -68,16 +104,20 @@ The default export is `retextPassive`.
 
 ### `unified().use(retextPassive[, options])`
 
-Check for passive voice.
+Check for the passive voice.
+
+##### `options`
+
+Configuration (optional).
 
 ###### `options.ignore`
 
 Phrases *not* to warn about (`Array<string>`).
 
-### Messages
+## Messages
 
-Each message is emitted as a [`VFileMessage`][message] on `file`, with the
-following fields:
+Each message is emitted as a [`VFileMessage`][vfile-message] on `file`, with
+the following fields:
 
 ###### `message.source`
 
@@ -95,14 +135,26 @@ Current not ok phrase (`string`).
 
 Empty array to signal that `actual` should be removed (`[]`).
 
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports the additional type `Options`.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
+
 ## Related
 
 *   [`retext-equality`](https://github.com/retextjs/retext-equality)
-    — Check possible insensitive, inconsiderate language
+    — check possible insensitive, inconsiderate language
 *   [`retext-profanities`](https://github.com/retextjs/retext-profanities)
-    — Check for profane and vulgar wording
+    — check for profane and vulgar wording
 *   [`retext-simplify`](https://github.com/retextjs/retext-simplify)
-    — Check phrases for simpler alternatives
+    — check phrases for simpler alternatives
 
 ## Contribute
 
@@ -148,20 +200,28 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
 [health]: https://github.com/retextjs/.github
 
-[contributing]: https://github.com/retextjs/.github/blob/HEAD/contributing.md
+[contributing]: https://github.com/retextjs/.github/blob/main/contributing.md
 
-[support]: https://github.com/retextjs/.github/blob/HEAD/support.md
+[support]: https://github.com/retextjs/.github/blob/main/support.md
 
-[coc]: https://github.com/retextjs/.github/blob/HEAD/code-of-conduct.md
+[coc]: https://github.com/retextjs/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
 [author]: https://wooorm.com
 
+[unified]: https://github.com/unifiedjs/unified
+
 [retext]: https://github.com/retextjs/retext
 
-[message]: https://github.com/vfile/vfile-message
+[vfile-message]: https://github.com/vfile/vfile-message
 
 [list]: list.js
