@@ -16,7 +16,7 @@ test('retext-passive', (t) => {
     .process(doc)
     .then((file) => {
       t.deepEqual(
-        file.messages.map((d) => String(d)),
+        file.messages.map(String),
         [
           '1:8-1:16: Don’t use the passive voice',
           '1:37-1:40: Don’t use the passive voice'
@@ -52,7 +52,7 @@ test('retext-passive', (t) => {
     .process(doc)
     .then((file) => {
       t.deepEqual(
-        file.messages.map((d) => String(d)),
+        file.messages.map(String),
         ['1:8-1:16: Don’t use the passive voice'],
         'should `ignore`'
       )

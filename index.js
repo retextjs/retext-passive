@@ -4,7 +4,7 @@
  *
  * @typedef Options
  *   Configuration.
- * @property {string[]} [ignore]
+ * @property {Array<string>} [ignore]
  *   Phrases *not* to warn about.
  */
 

@@ -72,7 +72,7 @@ Check for passive voice.
 
 ###### `options.ignore`
 
-Phrases *not* to warn about (`Array.<string>`).
+Phrases *not* to warn about (`Array<string>`).
 
 ### Messages
 
