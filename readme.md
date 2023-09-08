@@ -18,6 +18,7 @@
 *   [Use](#use)
 *   [API](#api)
     *   [`unified().use(retextPassive[, options])`](#unifieduseretextpassive-options)
+    *   [`Options`](#options)
 *   [Messages](#messages)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
@@ -30,7 +31,7 @@
 This package is a [unified][] ([retext][]) plugin to check for the passive
 voice.
 It checks for certain verbs (`'am'`, `'are'`, `'were'`, `'being'`, `'is'`,
-`'been'`, `'was'`, or `'be'`), followed by a word in [`list.js`][list].
+`'been'`, `'was'`, or `'be'`), followed by a word in [`list.js`][file-list].
 
 ## When should I use this?
 
@@ -40,7 +41,7 @@ weak language, and have authors that can fix that content.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install retext-passive
@@ -68,15 +69,15 @@ Say our document `example.txt` contains:
 He was withheld while we were being fed.
 ```
 
-…and our module `example.js` looks as follows:
+…and our module `example.js` contains:
 
 ```js
-import {read} from 'to-vfile'
-import {reporter} from 'vfile-reporter'
-import {unified} from 'unified'
 import retextEnglish from 'retext-english'
 import retextPassive from 'retext-passive'
 import retextStringify from 'retext-stringify'
+import {read} from 'to-vfile'
+import {unified} from 'unified'
+import {reporter} from 'vfile-reporter'
 
 const file = await unified()
   .use(retextEnglish)
@@ -87,12 +88,12 @@ const file = await unified()
 console.error(reporter(file))
 ```
 
-…now running `node example.js` yields:
+…then running `node example.js` yields:
 
 ```txt
 example.txt
-   1:8-1:16  warning  Don’t use the passive voice  withheld  retext-passive
-  1:37-1:40  warning  Don’t use the passive voice  fed       retext-passive
+1:8-1:16  warning Unexpected use of the passive voice withheld retext-passive
+1:37-1:40 warning Unexpected use of the passive voice fed      retext-passive
 
 ⚠ 2 warnings
 ```
@@ -100,52 +101,51 @@ example.txt
 ## API
 
 This package exports no identifiers.
-The default export is `retextPassive`.
+The default export is [`retextPassive`][api-retext-passive].
 
 ### `unified().use(retextPassive[, options])`
 
 Check for the passive voice.
 
-##### `options`
+###### Parameters
 
-Configuration (optional).
+*   `options` ([`Options`][api-options], optional)
+    — configuration
 
-###### `options.ignore`
+###### Returns
 
-Phrases *not* to warn about (`Array<string>`).
+Transform ([`Transformer`][unified-transformer]).
+
+### `Options`
+
+Configuration (TypeScript type).
+
+###### Fields
+
+*   `ignore` (`Array<string>`, optional)
+    — phrases *not* to warn about
 
 ## Messages
 
 Each message is emitted as a [`VFileMessage`][vfile-message] on `file`, with
-the following fields:
-
-###### `message.source`
-
-Name of this plugin (`'retext-passive'`).
-
-###### `message.ruleId`
-
-Any word in [`list.js`][list].
-
-###### `message.actual`
-
-Current not ok phrase (`string`).
-
-###### `message.expected`
-
-Empty array to signal that `actual` should be removed (`[]`).
+`source` set to `'retext-passive'`, `ruleId` to any word in
+[`list.js`][file-list], `actual` to the unexpected phrase, and `expected` to an
+empty array.
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional type `Options`.
+It exports the additional type [`Options`][api-options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `retext-passive@^4`,
+compatible with Node.js 12.
 
 ## Related
 
@@ -184,9 +184,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/retext-passive
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/retext-passive.svg
+[size-badge]: https://img.shields.io/bundlejs/size/retext-passive
 
-[size]: https://bundlephobia.com/result?p=retext-passive
+[size]: https://bundlejs.com/?q=retext-passive
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -218,10 +218,16 @@ abide by its terms.
 
 [author]: https://wooorm.com
 
+[retext]: https://github.com/retextjs/retext
+
 [unified]: https://github.com/unifiedjs/unified
 
-[retext]: https://github.com/retextjs/retext
+[unified-transformer]: https://github.com/unifiedjs/unified#transformer
 
 [vfile-message]: https://github.com/vfile/vfile-message
 
-[list]: lib/list.js
+[file-list]: lib/list.js
+
+[api-options]: #options
+
+[api-retext-passive]: #unifieduseretextpassive-options
