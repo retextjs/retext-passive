@@ -27,18 +27,18 @@ test('retext-passive', (t) => {
       t.deepEqual(
         JSON.parse(JSON.stringify(file.messages[0])),
         {
-          name: '1:8-1:16',
-          message: 'Don’t use the passive voice',
-          reason: 'Don’t use the passive voice',
-          line: 1,
           column: 8,
-          source: 'retext-passive',
-          ruleId: 'withheld',
-          position: {
+          fatal: false,
+          message: 'Don’t use the passive voice',
+          line: 1,
+          name: '1:8-1:16',
+          place: {
             start: {line: 1, column: 8, offset: 7},
             end: {line: 1, column: 16, offset: 15}
           },
-          fatal: false,
+          reason: 'Don’t use the passive voice',
+          ruleId: 'withheld',
+          source: 'retext-passive',
           actual: 'withheld',
           expected: [],
           url: 'https://github.com/retextjs/retext-passive#readme'

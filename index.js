@@ -37,12 +37,16 @@ export default function retextPassive(options = {}) {
         return
       }
 
+      const start = pointStart(match[0])
+      const end = pointEnd(match[match.length - 1])
+
       Object.assign(
-        file.message(
-          'Don’t use the passive voice',
-          {start: pointStart(match[0]), end: pointEnd(match[match.length - 1])},
-          [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
-        ),
+        file.message('Don’t use the passive voice', {
+          /* c8 ignore next -- hard to test */
+          place: start && end ? {start, end} : undefined,
+          source,
+          ruleId: phrase.replace(/\s+/g, '-').toLowerCase()
+        }),
         {actual: toString(match), expected: [], url}
       )
     })
