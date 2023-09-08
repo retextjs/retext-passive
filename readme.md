@@ -50,14 +50,14 @@ npm install retext-passive
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import retextPassive from 'https://esm.sh/retext-passive@4'
+import retextPassive from 'https://esm.sh/retext-passive@5'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import retextPassive from 'https://esm.sh/retext-passive@4?bundle'
+  import retextPassive from 'https://esm.sh/retext-passive@5?bundle'
 </script>
 ```
 
