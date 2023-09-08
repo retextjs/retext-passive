@@ -1,54 +1,5 @@
 /**
- * @typedef {import('nlcst').Root} Root
- * @typedef {import('nlcst').Word} Word
- *
- * @typedef Options
- *   Configuration.
- * @property {Array<string>} [ignore]
- *   Phrases *not* to warn about.
+ * @typedef {import('./lib/index.js').Options} Options
  */
 
-import {search} from 'nlcst-search'
-import {toString} from 'nlcst-to-string'
-import {findBefore} from 'unist-util-find-before'
-import {pointStart, pointEnd} from 'unist-util-position'
-import {list} from './list.js'
-
-const source = 'retext-passive'
-const url = 'https://github.com/retextjs/retext-passive#readme'
-
-const verbs = new Set(['am', 'are', 'were', 'being', 'is', 'been', 'was', 'be'])
-
-/**
- * Plugin to check for passive voice.
- *
- * @type {import('unified').Plugin<[Options?], Root>}
- */
-export default function retextPassive(options = {}) {
-  const ignore = options.ignore || []
-  const phrases =
-    ignore.length > 0 ? list.filter((d) => !ignore.includes(d)) : list
-
-  return (tree, file) => {
-    search(tree, phrases, (match, index, parent, phrase) => {
-      const before = /** @type {Word} */ (findBefore(parent, index, 'WordNode'))
-
-      if (!before || !verbs.has(toString(before).toLowerCase())) {
-        return
-      }
-
-      const start = pointStart(match[0])
-      const end = pointEnd(match[match.length - 1])
-
-      Object.assign(
-        file.message('Don’t use the passive voice', {
-          /* c8 ignore next -- hard to test */
-          place: start && end ? {start, end} : undefined,
-          source,
-          ruleId: phrase.replace(/\s+/g, '-').toLowerCase()
-        }),
-        {actual: toString(match), expected: [], url}
-      )
-    })
-  }
-}
+export {default} from './lib/index.js'

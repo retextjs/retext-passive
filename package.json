@@ -27,10 +27,9 @@
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
+    "lib/",
     "index.d.ts",
-    "index.js",
-    "list.d.ts",
-    "list.js"
+    "index.js"
   ],
   "dependencies": {
     "@types/nlcst": "^2.0.0",

@@ -224,4 +224,4 @@ abide by its terms.
 
 [vfile-message]: https://github.com/vfile/vfile-message
 
-[list]: list.js
+[list]: lib/list.js
